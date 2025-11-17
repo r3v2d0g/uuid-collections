@@ -1,0 +1,15 @@
+[package]
+name = "uuid-map"
+description = "UUID-optimized maps and sets"
+version = "0.1.0"
+homepage = "https://github.com/r3v2d0g/uuid-map"
+documentation = "https://docs.rs/uuid-map"
+license = "MPL-2.0"
+authors = ["Matthieu (MLB) Le brazidec <r3v2d0g@jesus.gg>"]
+edition = "2024"
+
+[dependencies]
+uuid = "1.18"
+
+[dev-dependencies]
+uuid = { version = "1.18", features = ["v1", "v4", "v7"] }
