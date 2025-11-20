@@ -123,7 +123,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "uuid-map"
+name = "uuid-collections"
 version = "0.1.0"
 dependencies = [
  "uuid",

@@ -1,9 +1,9 @@
 [package]
-name = "uuid-map"
-description = "UUID-optimized maps and sets"
+name = "uuid-collections"
+description = "UUID-optimized collections"
 version = "0.1.0"
-homepage = "https://github.com/r3v2d0g/uuid-map"
-documentation = "https://docs.rs/uuid-map"
+homepage = "https://github.com/r3v2d0g/uuid-collections"
+documentation = "https://docs.rs/uuid-collections"
 license = "MPL-2.0"
 authors = ["Matthieu (MLB) Le brazidec <r3v2d0g@jesus.gg>"]
 edition = "2024"
