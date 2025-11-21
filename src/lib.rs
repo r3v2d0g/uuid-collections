@@ -25,7 +25,7 @@ mod tests;
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
-#[derive(Default, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct UuidMap<V>(HashMap<Uuid, V, UuidBuildHasher>);
 
 /// A wrapper around an [`HashSet`] where the keys are UUIDv4s or UUIDv7s and don't
@@ -92,6 +92,12 @@ impl UuidSet {
     }
 }
 
+impl<V> Default for UuidMap<V> {
+    fn default() -> Self {
+        Self(HashMap::default())
+    }
+}
+
 impl<V> Deref for UuidMap<V> {
     type Target = HashMap<Uuid, V, UuidBuildHasher>;
 
@@ -133,6 +139,20 @@ impl<V: Debug> Debug for UuidMap<V> {
 impl Debug for UuidSet {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         Debug::fmt(&self.0, f)
+    }
+}
+
+impl<V> Extend<(Uuid, V)> for UuidMap<V> {
+    #[inline]
+    fn extend<T: IntoIterator<Item = (Uuid, V)>>(&mut self, iter: T) {
+        self.0.extend(iter);
+    }
+}
+
+impl Extend<Uuid> for UuidSet {
+    #[inline]
+    fn extend<T: IntoIterator<Item = Uuid>>(&mut self, iter: T) {
+        self.0.extend(iter);
     }
 }
 
