@@ -93,8 +93,37 @@ impl UuidSet {
 }
 
 impl<V> Default for UuidMap<V> {
+    #[inline]
     fn default() -> Self {
         Self(HashMap::default())
+    }
+}
+
+impl<V> From<HashMap<Uuid, V, UuidBuildHasher>> for UuidMap<V> {
+    #[inline]
+    fn from(map: HashMap<Uuid, V, UuidBuildHasher>) -> Self {
+        Self(map)
+    }
+}
+
+impl From<HashSet<Uuid, UuidBuildHasher>> for UuidSet {
+    #[inline]
+    fn from(set: HashSet<Uuid, UuidBuildHasher>) -> Self {
+        Self(set)
+    }
+}
+
+impl<V> From<UuidMap<V>> for HashMap<Uuid, V, UuidBuildHasher> {
+    #[inline]
+    fn from(map: UuidMap<V>) -> Self {
+        map.0
+    }
+}
+
+impl From<UuidSet> for HashSet<Uuid, UuidBuildHasher> {
+    #[inline]
+    fn from(set: UuidSet) -> Self {
+        set.0
     }
 }
 
