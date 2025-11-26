@@ -12,6 +12,7 @@ use uuid::Uuid;
 
 pub use self::hasher::{UuidBuildHasher, UuidHasher};
 
+mod ext;
 mod hasher;
 #[cfg(test)]
 mod tests;

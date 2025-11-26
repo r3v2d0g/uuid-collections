@@ -8,8 +8,13 @@ license = "MPL-2.0"
 authors = ["Matthieu (MLB) Le brazidec <r3v2d0g@jesus.gg>"]
 edition = "2024"
 
+[features]
+# Implements the traits necessary to use `UuidMap` and `UuidSet` with `rkyv`.
+rkyv-08 = ["dep:rkyv"]
+
 [dependencies]
 uuid = "1.18"
+rkyv = { version = "0.8", optional = true, features = ["uuid-1"] }
 
 [dev-dependencies]
 uuid = { version = "1.18", features = ["v1", "v4", "v7"] }
