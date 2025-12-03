@@ -15,6 +15,7 @@ rkyv-08 = ["dep:rkyv"]
 [dependencies]
 uuid = "1.18"
 rkyv = { version = "0.8", optional = true, features = ["uuid-1"] }
+uuid-like = "0.2"
 
 [dev-dependencies]
 uuid = { version = "1.18", features = ["v1", "v4", "v7"] }

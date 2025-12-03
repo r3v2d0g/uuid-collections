@@ -10,10 +10,14 @@ use std::{
 
 use uuid::Uuid;
 
-pub use self::hasher::{UuidBuildHasher, UuidHasher};
+pub use self::{
+    hasher::{UuidBuildHasher, UuidHasher},
+    like::{UuidLikeMap, UuidLikeSet},
+};
 
 mod ext;
 mod hasher;
+mod like;
 #[cfg(test)]
 mod tests;
 
