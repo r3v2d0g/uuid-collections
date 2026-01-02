@@ -13,8 +13,9 @@ edition = "2024"
 rkyv-08 = ["dep:rkyv"]
 
 [dependencies]
+indexmap = "2.12"
 uuid = "1.18"
-rkyv = { version = "0.8", optional = true, features = ["uuid-1"] }
+rkyv = { version = "0.8", optional = true, features = ["indexmap-2", "uuid-1"] }
 uuid-like = "0.2"
 
 [dev-dependencies]

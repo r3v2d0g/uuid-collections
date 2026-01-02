@@ -293,6 +293,7 @@ dependencies = [
 name = "uuid-collections"
 version = "0.1.4"
 dependencies = [
+ "indexmap",
  "rkyv",
  "uuid",
  "uuid-like",
