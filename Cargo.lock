@@ -1006,7 +1006,7 @@ dependencies = [
 
 [[package]]
 name = "uuid-collections"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "indexmap",
  "rayon",
