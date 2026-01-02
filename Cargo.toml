@@ -12,10 +12,14 @@ edition = "2024"
 # Implements the traits necessary to use `UuidMap` and `UuidSet` with `rkyv`.
 rkyv-08 = ["dep:rkyv"]
 
+# Implements the traits necessary to use `UuidMap` and `UuidSet` with `scylla`.
+scylla-1 = ["dep:scylla"]
+
 [dependencies]
 indexmap = "2.12"
 uuid = "1.18"
 rkyv = { version = "0.8", optional = true, features = ["indexmap-2", "uuid-1"] }
+scylla = { version = "1.4", optional = true }
 uuid-like = "0.2"
 
 [dev-dependencies]
