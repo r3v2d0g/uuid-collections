@@ -14,6 +14,7 @@ use crate::UuidBuildHasher;
 /// See [`UuidMap`][1] and [`UuidLike`] for more details.
 ///
 /// [1]: crate::UuidMap
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, PartialEq, Eq)]
 pub struct UuidLikeMap<K: UuidLike, V>(HashMap<K, V, UuidBuildHasher>);
 
@@ -22,6 +23,7 @@ pub struct UuidLikeMap<K: UuidLike, V>(HashMap<K, V, UuidBuildHasher>);
 /// See [`UuidIndexMap`][1] and [`UuidLike`] for more details.
 ///
 /// [1]: crate::UuidIndexMap
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, PartialEq, Eq)]
 pub struct UuidLikeIndexMap<K: UuidLike, V>(IndexMap<K, V, UuidBuildHasher>);
 
@@ -30,6 +32,7 @@ pub struct UuidLikeIndexMap<K: UuidLike, V>(IndexMap<K, V, UuidBuildHasher>);
 /// See [`UuidSet`][1] and [`UuidLike`] for more details.
 ///
 /// [1]: crate::UuidSet
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, PartialEq, Eq)]
 pub struct UuidLikeSet<K: UuidLike>(HashSet<K, UuidBuildHasher>);
 
@@ -38,6 +41,7 @@ pub struct UuidLikeSet<K: UuidLike>(HashSet<K, UuidBuildHasher>);
 /// See [`UuidIndexSet`][1] and [`UuidLike`] for more details.
 ///
 /// [1]: crate::UuidSet
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, PartialEq, Eq)]
 pub struct UuidLikeIndexSet<K: UuidLike>(IndexSet<K, UuidBuildHasher>);
 

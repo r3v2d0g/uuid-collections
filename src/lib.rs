@@ -27,6 +27,7 @@ mod tests;
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, PartialEq, Eq)]
 pub struct UuidMap<V>(HashMap<Uuid, V, UuidBuildHasher>);
 
@@ -39,6 +40,7 @@ pub struct UuidMap<V>(HashMap<Uuid, V, UuidBuildHasher>);
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Clone, PartialEq, Eq)]
 pub struct UuidIndexMap<V>(IndexMap<Uuid, V, UuidBuildHasher>);
 
@@ -51,6 +53,7 @@ pub struct UuidIndexMap<V>(IndexMap<Uuid, V, UuidBuildHasher>);
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct UuidSet(HashSet<Uuid, UuidBuildHasher>);
 
@@ -63,6 +66,7 @@ pub struct UuidSet(HashSet<Uuid, UuidBuildHasher>);
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
+#[cfg_attr(feature = "serde-1", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct UuidIndexSet(IndexSet<Uuid, UuidBuildHasher>);
 
