@@ -9,6 +9,11 @@ authors = ["Matthieu (MLB) Le brazidec <r3v2d0g@jesus.gg>"]
 edition = "2024"
 
 [features]
+default = ["gxhash-3"]
+
+# Falls back to using `gxhash` for UUIDs which aren't v4s or v7s.
+gxhash-3 = ["dep:gxhash"]
+
 # Implements the traits necessary to use `UuidMap` and `UuidSet` with `rayon`.
 rayon-1 = ["dep:rayon", "indexmap/rayon"]
 
@@ -22,6 +27,7 @@ scylla-1 = ["dep:scylla"]
 serde-1 = ["dep:serde", "indexmap/serde", "uuid/serde"]
 
 [dependencies]
+gxhash = { version = "3.5", optional = true }
 indexmap = "2.12"
 uuid = "1.18"
 rayon = { version = "1.11", optional = true }

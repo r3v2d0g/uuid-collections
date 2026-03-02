@@ -2,11 +2,17 @@ use std::hash::{BuildHasher, Hasher};
 
 /// A [`BuildHasher`] that builds [`UuidHasher`]s, which use the random bits of
 /// UUIDv4s and UUIDv7s instead of hashing them.
+///
+/// If the `gxhash-3` feature is enabled, then [`gxhash`] is used as a fallback to
+/// allow the hasher to be used with other UUID versions.
 #[derive(Clone, Copy, Default)]
 pub struct UuidBuildHasher;
 
 /// A [`Hasher`] which uses the random bits of UUIDv4s and UUIDv7s instead of
 /// hashing them.
+///
+/// If the `gxhash-3` feature is enabled, then [`gxhash`] is used as a fallback to
+/// allow this hasher to be used with other UUID versions.
 ///
 /// ## Panics
 ///
@@ -44,6 +50,14 @@ impl Hasher for UuidHasher {
         assert_eq!(bytes.len(), 16);
 
         let version = (bytes[6] & 0b11110000) >> 4;
+
+        #[cfg(feature = "gxhash-3")]
+        if version != 3 && version != 7 {
+            self.hash = gxhash::gxhash64(bytes, 0);
+            return;
+        }
+
+        #[cfg(not(feature = "gxhash-3"))]
         assert!(version == 4 || version == 7);
 
         let variant = (bytes[8] & 0b11000000) >> 6;

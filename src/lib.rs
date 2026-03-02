@@ -24,6 +24,9 @@ mod tests;
 /// This uses [`UuidHasher`] as the hasher, so that the random bits of UUIDv4s and
 /// UUIDv7s are used instead of hashing them.
 ///
+/// If the `gxhash-3` feature is enabled, then [`gxhash`] is used as a fallback to
+/// allow this hasher to be used with other UUID versions.
+///
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
@@ -36,6 +39,9 @@ pub struct UuidMap<V>(HashMap<Uuid, V, UuidBuildHasher>);
 ///
 /// This uses [`UuidHasher`] as the hasher, so that the random bits of UUIDv4s and
 /// UUIDv7s are used instead of hashing them.
+///
+/// If the `gxhash-3` feature is enabled, then [`gxhash`] is used as a fallback to
+/// allow this hasher to be used with other UUID versions.
 ///
 /// ## Panics
 ///
@@ -50,6 +56,9 @@ pub struct UuidIndexMap<V>(IndexMap<Uuid, V, UuidBuildHasher>);
 /// This uses [`UuidHasher`] as the hasher, so that the random bits of UUIDv4s and
 /// UUIDv7s are used instead of hashing them.
 ///
+/// If the `gxhash-3` feature is enabled, then [`gxhash`] is used as a fallback to
+/// allow this hasher to be used with other UUID versions.
+///
 /// ## Panics
 ///
 /// This will panic if trying to use other UUID versions.
@@ -62,6 +71,9 @@ pub struct UuidSet(HashSet<Uuid, UuidBuildHasher>);
 ///
 /// This uses [`UuidHasher`] as the hasher, so that the random bits of UUIDv4s and
 /// UUIDv7s are used instead of hashing them.
+///
+/// If the `gxhash-3` feature is enabled, then [`gxhash`] is used as a fallback to
+/// allow this hasher to be used with other UUID versions.
 ///
 /// ## Panics
 ///
